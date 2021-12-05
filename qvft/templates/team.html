@@ -5,7 +5,36 @@ About
 {% endblock %}
 
 {% block content %}
+<style>
+    h1 {
+        padding-bottom:0.5em;
+    }
+    .member-name{
+        font-weight:600;
+    }
+    .img-fluid{
+        width:100%;
+    }
+    figure{
+        width:100%;
+    }
+</style>
 <main role="main" class="container">
     <h1>Our Team</h1>
+    {% for member in team_data %}
+        {% if loop.index0 % 2 == 0 %}
+        <div class="row">
+        {% endif %}
+            <div class="col-md-6">
+                <figure class="figure">
+                    <img src="{{ url_for('static', filename=member.url) }}" class="figure-img img-fluid rounded">
+                    <figcaption class="figure-caption"><span class="member-name">{{member.name}}</span>, {{member.role}}</figcaption>
+                </figure>
+            </div>
+        {% if loop.index0 % 2 != 0 %}
+        </div>
+        {% endif %}
+    {% endfor %}
+
 </main>
 {% endblock%}

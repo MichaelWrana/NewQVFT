@@ -11,5 +11,37 @@ Home
 <main role="main" class="container">
     <h1>Who We Are</h1>
     <p>The Queen's Vertical Farming Team is Canada's first undergraduate engineering team of its kind. Recognizing this rapidly emerging industry, QVFT is designing and building a functional, software-automated aeroponic vertical farm on Queen's University campus. The majority of existing research in this field is conducted privately and is thus inaccessible to the public. Through its open-source approach, QVFT aims to democratize vertical farming knowledge and research. Our 25 alumni and 13 current members come from diverse academic disciplines and represent all four years of study.</p>
+    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
+    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
+    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
+    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
+    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
+    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
+    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
+    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
+    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
 </main>
+
+{% endblock%}
+{% block page_js %}
+<script>
+    $(window).scroll(function() {    
+        var scroll = $(window).scrollTop();
+
+        //>=, not <=
+        if (scroll >= $(".vh-100").height()-80) {
+            //clearHeader, not clearheader - caps H
+            $(".navbar").addClass("navbar-light bg-light");
+            $(".navbar").removeClass("navbar-dark");
+            $(".btn").removeClass("btn-outline-light");
+            $(".btn").addClass("btn-outline-dark");
+        }
+        else if (scroll < $(".vh-100").height()-80){
+            $(".navbar").removeClass("navbar-light bg-light");
+            $(".navbar").addClass("navbar-dark");
+            $(".btn").removeClass("btn-outline-dark");
+            $(".btn").addClass("btn-outline-light");
+        }
+    });
+</script>
 {% endblock%}

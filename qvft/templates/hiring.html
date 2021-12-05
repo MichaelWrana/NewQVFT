@@ -5,7 +5,55 @@ About
 {% endblock %}
 
 {% block content %}
+<style>
+    .img-fluid{
+        width:100%;
+    }
+    figure{
+        width:100%;
+    }
+    .row{
+        padding-top:1em;
+    }
+</style>
 <main role="main" class="container">
     <h1>Hiring</h1>
+    <p>Founded in September 2019, QVFT is Canada's first student-led university vertical farming design team. Vertical farming is a hyper-efficient, sustainable food cultivation method which is projected to become a major contributor to global food production in the coming decades. We are now seeking passionate, creative, and driven individuals to join us for the 2021-22 school year. Individual roles are described in the Hiring Package below. Apply before 11:59 PM on Tuesday, March 16th, 2021.</p>
+    <div class="row">
+        <div class="col-md-2">
+            <figure class="figure">
+                <img src="{{ url_for('static', filename='Gears_Icon.webp') }}" class="figure-img img-fluid rounded">
+                <figcaption class="figure-caption">Mechanical Designer</figcaption>
+            </figure>
+        </div>
+        <div class="col-md-2">
+            <figure class="figure">
+                <img src="{{ url_for('static', filename='Laptop_Icon.webp') }}" class="figure-img img-fluid rounded">
+                <figcaption class="figure-caption">Software Developer</figcaption>
+            </figure>
+        </div>
+        <div class="col-md-2">
+            <figure class="figure">
+                <img src="{{ url_for('static', filename='circuit.webp') }}" class="figure-img img-fluid rounded">
+                <figcaption class="figure-caption">Electrical Engineer</figcaption>
+            </figure>
+        </div>
+        <div class="col-md-2">
+            <figure class="figure">
+                <img src="{{ url_for('static', filename='premiumProduce.webp') }}" class="figure-img img-fluid rounded">
+                <figcaption class="figure-caption">Plant Science Researcher</figcaption>
+            </figure>
+        </div>
+        <div class="col-md-2">
+            <figure class="figure">
+                <img src="{{ url_for('static', filename='ourTeam.webp') }}" class="figure-img img-fluid rounded">
+                <figcaption class="figure-caption">Business Operations Manager</figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <h1>Hiring Package</h1>
+
+    <embed src="{{ url_for('static', filename='QVFT_Hiring.pdf') }}" type="application/pdf">
 </main>
 {% endblock%}
