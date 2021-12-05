@@ -24,14 +24,16 @@ About
     {% for member in team_data %}
         {% if loop.index0 % 2 == 0 %}
         <div class="row">
+            <div class="col-md-2"></div>
         {% endif %}
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <figure class="figure">
                     <img src="{{ url_for('static', filename=member.url) }}" class="figure-img img-fluid rounded">
                     <figcaption class="figure-caption"><span class="member-name">{{member.name}}</span>, {{member.role}}</figcaption>
                 </figure>
             </div>
         {% if loop.index0 % 2 != 0 %}
+            <div class="col-md-2"></div>
         </div>
         {% endif %}
     {% endfor %}
