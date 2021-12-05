@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% set active_page = "/home" %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<div class="vh-100">
+    <img class="landing-image" src="{{ url_for('static', filename='farm-bg.jpg') }}">
+</div>
+<main role="main" class="container">
+    <h1>Who We Are</h1>
+    <p>The Queen's Vertical Farming Team is Canada's first undergraduate engineering team of its kind. Recognizing this rapidly emerging industry, QVFT is designing and building a functional, software-automated aeroponic vertical farm on Queen's University campus. The majority of existing research in this field is conducted privately and is thus inaccessible to the public. Through its open-source approach, QVFT aims to democratize vertical farming knowledge and research. Our 25 alumni and 13 current members come from diverse academic disciplines and represent all four years of study.</p>
+</main>
+{% endblock%}
