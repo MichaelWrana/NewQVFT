@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>QVFT - {% block title %}{% endblock %}</title>
+    <title>QVFT</title>
     <meta name="description" content="The Queen's Vertical Farming Team's mission is to develop a functional, small scale vertical farm.">
     <meta name="author" content="Michael Wrana">
 
@@ -27,8 +27,7 @@
     <!-- Custom CSS-->
     <link rel="stylesheet" href="{{ url_for('static', filename='theme.css') }}">
     <style>@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Exo+2:wght@400;600;800&display=swap');</style>
-
-    <!-- CSS for special home page with full-width image-->
+    {% block page_css %}{% endblock %}
 
 </head>
 

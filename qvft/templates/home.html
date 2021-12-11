@@ -1,25 +1,90 @@
 {% extends "base.html" %}
 {% set active_page = "/home" %}
-{% block title %}
-Home
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='timeline.css') }}">
 {% endblock %}
 
 {% block content %}
+<style>
+    .shadow:hover{
+        color:green;
+    }
+    .zoom {
+        transition: 0.3s ease-in-out;
+    }
+    .zoom:hover {
+        transform: scale(1.1);
+    }
+</style>
 <div class="vh-100">
     <img class="landing-image" src="{{ url_for('static', filename='farm-bg.jpg') }}">
 </div>
 <main role="main" class="container">
     <h1>Who We Are</h1>
-    <p>The Queen's Vertical Farming Team is Canada's first undergraduate engineering team of its kind. Recognizing this rapidly emerging industry, QVFT is designing and building a functional, software-automated aeroponic vertical farm on Queen's University campus. The majority of existing research in this field is conducted privately and is thus inaccessible to the public. Through its open-source approach, QVFT aims to democratize vertical farming knowledge and research. Our 25 alumni and 13 current members come from diverse academic disciplines and represent all four years of study.</p>
-    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
-    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
-    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
-    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
-    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
-    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
-    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
-    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
-    <img src="https://52f4e29a8321344e30ae-0f55c9129972ac85d6b1f4e703468e6b.ssl.cf2.rackcdn.com/products/pictures/1104256.jpg">
+    <p class="py-4">The Queen's Vertical Farming Team is Canada's first undergraduate engineering team of its kind. Recognizing this rapidly emerging industry, QVFT is designing and building a functional, software-automated aeroponic vertical farm on Queen's University campus. The majority of existing research in this field is conducted privately and is thus inaccessible to the public. Through its open-source approach, QVFT aims to democratize vertical farming knowledge and research. Our 25 alumni and 13 current members come from diverse academic disciplines and represent all four years of study.</p>
+    
+    <div class="row justify-content-center text-center pb-4">
+        <div class="col-7 col-md-4 col-lg-3 m-3">
+            <div class="shadow">
+                <img src="{{ url_for('static', filename='fullyAutomated.webp') }}" class="img-fluid w-100 p-5">
+                <h5 class="pb-3">Aeroponic Farming</h5>
+            </div>
+        </div>
+        <div class="col-7 col-md-4 col-lg-3 m-3">
+            <div class="shadow">
+                <img src="{{ url_for('static', filename='premiumProduce.webp') }}" class="img-fluid w-100 p-5">
+                <h5 class="pb-3">Premium Produce</h5>
+            </div>
+        </div>
+        <div class="col-7 col-md-4 col-lg-3 m-3">
+            <div class="shadow">
+                <img src="{{ url_for('static', filename='ourTeam.webp') }}" class="img-fluid w-100 p-5">
+                <h5 class="pb-3">Dedicated Growers</h5>
+            </div>
+        </div>
+    </div>
+    <h1 class="py-4">Our partners</h1>
+    <div class="row justify-content-center">
+        {% for partner in partner_data %}
+        <div class="col-5">
+            <a href="{{partner.url}}">
+                <img src="{{ url_for('static', filename=partner.img) }}" class="img-fluid zoom">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    <h1 class="py-4">Timeline</h1>
+    <div class="row">
+        <ul id="timeline" class="timeline">
+            <div class="arrowhead"></div>
+            <li>
+                <div class="timeline-badge">2019</div>
+                <div class="timeline-panel">  
+                    <div class="timeline-heading">
+                        <h3 class="timeline-title">November</h3>
+                    </div>
+                    <div class="timeline-body">
+                       Hired 2019-2020 Executive Members
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-badge">2019</div>
+                <div class="timeline-panel">  
+              
+                  <div class="timeline-heading">
+                        <h3 class="timeline-title">EUs rammedirektiv for vann innført. NVE har spesielt ansvar for å tolke direktivets miljømål og – tiltak i vassdrag der det er gjort fysiske inngrep</h3>
+                    </div>
+                        
+                  <div class="timeline-body">
+                        
+                  </div>
+                      
+                </div>
+            </li>
+        </ul>
+    </div>
 </main>
 
 {% endblock%}

@@ -1,8 +1,7 @@
 from qvft import app
 from flask import render_template
 
-# Generate Navigation
-navigation = [
+navigation_data = [
     {
         "caption": "What We Do",
         "href": "/about"
@@ -84,27 +83,53 @@ team_data = [
     },
 ]
 
+partner_data = [
+    {
+        "url": "https://www.bmahydroponics.com/",
+        "img": "bma.webp"
+    },
+    {
+        "url": "https://zipgrow.com/",
+        "img": "zipgrow.webp"
+    },
+    {
+        "url": "https://www.igrow.news/",
+        "img": "igrow.webp"
+    },
+    {
+        "url": "https://www.engsoc.queensu.ca/get-involved/clubs/",
+        "img": "engsoc.webp"
+    },
+    {
+        "url": "http://simbl.ca/",
+        "img": "simbl.webp"
+    },
+    {
+        "url": "https://aerok.ca/",
+        "img": "aerok.webp"
+    },
+]
 
 @app.route('/')
 def index():
-    return render_template('home.html', navigation=navigation)
+    return render_template('home.html', navigation=navigation_data, partner_data=partner_data)
 
 
 @app.route('/about/')
 def about():
-    return render_template('about.html', navigation=navigation)
+    return render_template('about.html', navigation=navigation_data)
 
 
 @app.route('/team/')
 def team():
-    return render_template('team.html', navigation=navigation, team_data=team_data)
+    return render_template('team.html', navigation=navigation_data, team_data=team_data)
 
 
 @app.route('/sponsors/')
 def sponsors():
-    return render_template('sponsors.html', navigation=navigation)
+    return render_template('sponsors.html', navigation=navigation_data)
 
 
 @app.route('/hiring/')
 def hiring():
-    return render_template('hiring.html', navigation=navigation)
+    return render_template('hiring.html', navigation=navigation_data)
