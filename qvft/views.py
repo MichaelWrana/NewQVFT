@@ -3,7 +3,6 @@ from qvft import data
 from flask import render_template
 
 
-
 @app.route('/')
 def index():
     return render_template('home.html', navigation=data.nav_data, partner_data=data.partner_data)
