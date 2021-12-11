@@ -1,5 +1,6 @@
 body{
     font-family: 'Exo 2', sans-serif;
+    line-height: 1.8;
 }
 .landing-image {
     object-fit: cover;
@@ -24,4 +25,14 @@ embed{
     height:90vh;
     margin-top: 2em;
     margin-bottom: 2em;
+}
+@media only screen and (min-width: 768px) {
+    .nav-item.active{
+        border-bottom: 3px solid #afcb5b;
+        border-radius: 10px;
+    }
+}
+
+.navbar{
+    border-top:3px solid #afcb5b;
 }

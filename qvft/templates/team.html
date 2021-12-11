@@ -2,12 +2,13 @@
 {% set active_page = "/team" %}
 {% block content %}
 <main role="main" class="container">
-    <h1 class="pb-3">Our Team</h1> 
+    <h1>Our Team</h1> 
+    <div class="py-4"></div>
     <div class="row">
     {% for member in team_data %}
             <div class="col-6 col-lg-4">
                 <figure class="figure w-100">
-                    <img src="{{ url_for('static', filename=member.url) }}" class="figure-img img-fluid rounded w-100">
+                    <img src="{{ url_for('static', filename=member.img) }}" class="figure-img img-fluid rounded w-100">
                     <figcaption class="figure-caption"><span class="font-weight-bold">{{member.name}}</span>, {{member.role}}</figcaption>
                 </figure>
             </div>

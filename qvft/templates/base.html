@@ -34,9 +34,9 @@
 <body">
     <header>
         
-        <nav class="navbar navbar-expand-md fixed-top {% if active_page == "/home" %} navbar-dark {% else %} navbar-light bg-light {% endif %} py-3">
+        <nav class="navbar navbar-expand-md fixed-top {% if active_page == "/home" %} navbar-dark {% else %} navbar-light bg-light {% endif %}">
             <a class="navbar-brand" href="/">
-                <img src="https://www.qvft.ca/logo-white.webp" width="30px" height="30px">
+                <img src="{{ url_for('static', filename='logo.webp') }}" width="30px" height="30px">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -44,8 +44,8 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     {% for navitem in navigation %}
-                    <li class="nav-item"> 
-                        <a class="nav-link {% if navitem.href == active_page %}active{% endif %}" href="{{ navitem.href }}">{{ navitem.caption }}</a>
+                    <li class="nav-item {% if navitem.href == active_page %}active{% endif %}"> 
+                        <a class="nav-link" href="{{ navitem.href }}">{{ navitem.caption }}</a>
                     </li>
                     {% endfor %}
                 </ul>
