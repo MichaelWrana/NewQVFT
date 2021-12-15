@@ -48,13 +48,18 @@
     #aeroponic-image:hover .plant-image{
         opacity: 100;
     }
+    .vh-100{
+        background-image:url("{{ url_for('static', filename='images/farm-bg.jpg') }}");
+        background-size: cover;
+        background-position: center;
+    }
 </style>
 {% endblock %}
 
 {% block content %}
 
-<div class="vh-100">
-    <img class="landing-image" src="{{ url_for('static', filename='images/farm-bg.jpg') }}">
+<div class="d-flex vh-100 justify-content-center align-items-center">
+    <img src="{{ url_for('static', filename='images/icons/logo-white.webp') }}" class="img-fluid w-25">
 </div>
 <main role="main" class="container">
     <h1>The Queen's Vertical Farming Team</h1>
