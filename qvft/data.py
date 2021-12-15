@@ -1,3 +1,9 @@
+images_dir = "images/"
+team_dir = images_dir + "team/"
+partners_dir = images_dir + "partners/"
+icons_dir = images_dir + "icons/"
+
+
 nav_data = [
     {
         "caption": "What We Do",
@@ -21,111 +27,111 @@ team_data = [
     {
         "name": "Patrick Singal",
         "role": "Manager",
-        "img": "patrick.webp"
+        "img": team_dir + "patrick.webp"
     },
     {
         "name": "Chris Molloy",
         "role": "Database Developer",
-        "img": "chris.webp"
+        "img": team_dir + "chris.webp"
     },
     {
         "name": "Iain Headrick",
         "role": "Mechanical Designer",
-        "img": "iain.webp"
+        "img": team_dir + "iain.webp"
     },
     {
         "name": "Julia Mackey",
         "role": "Business Operations",
-        "img": "julia.webp"
+        "img": team_dir + "julia.webp"
     },
     {
         "name": "Ryan Power",
         "role": "Hardware Designer",
-        "img": "ryan.webp"
+        "img": team_dir + "ryan.webp"
     },
     {
         "name": "Elissa Wong",
         "role": "Plant Science Researcher",
-        "img": "elissa.webp"
+        "img": team_dir + "elissa.webp"
     },
     {
         "name": "Michael Wrana",
         "role": "Front-End Developer",
-        "img": "wrana.webp"
+        "img": team_dir + "michael.webp"
     },
     {
         "name": "Donal Lynagh",
         "role": "Business Operations",
-        "img": "donal.webp"
+        "img": team_dir + "donal.webp"
     },
     {
         "name": "Justine Kuczera",
         "role": "Business Operations",
-        "img": "justine.webp"
+        "img": team_dir + "justine.webp"
     },
     {
         "name": "Quantum Hu",
         "role": "Hardware Designer",
-        "img": "quantum.webp"
+        "img": team_dir + "quantum.webp"
     },
     {
         "name": "Carter Conboy",
         "role": "Front-End Developer",
-        "img": "carter.webp"
+        "img": team_dir + "carter.webp"
     },
     {
         "name": "Joshua Sass-Gregoire",
         "role": "Mechanical Designer",
-        "img": "joshua.webp"
+        "img": team_dir + "joshua.webp"
     },
 ]
 
 partner_data = [
     {
         "url": "https://www.bmahydroponics.com/",
-        "img": "bma.webp"
+        "img": partners_dir + "bma.webp"
     },
     {
         "url": "https://zipgrow.com/",
-        "img": "zipgrow.webp"
+        "img": partners_dir + "zipgrow.webp"
     },
     {
         "url": "https://www.igrow.news/",
-        "img": "igrow.webp"
+        "img": partners_dir + "igrow.webp"
     },
     {
         "url": "https://www.engsoc.queensu.ca/get-involved/clubs/",
-        "img": "engsoc.webp"
+        "img": partners_dir + "engsoc.webp"
     },
     {
         "url": "http://simbl.ca/",
-        "img": "simbl.webp"
+        "img": partners_dir + "simbl.webp"
     },
     {
         "url": "https://aerok.ca/",
-        "img": "aerok.webp"
+        "img": partners_dir + "aerok.webp"
     },
 ]
 
 hiring_data = [
     {
         "role": "Mechanical Designer",
-        "img": "Gears_Icon.webp"
+        "img": icons_dir + "concepts.png"
     },
     {
         "role": "Software Developer",
-        "img": "Laptop_Icon.webp"
+        "img": icons_dir + "laptop.png"
     },
     {
         "role": "Electrical Engineer",
-        "img": "circuit.webp"
+        "img": icons_dir + "electrical-energy.png"
     },
     {
         "role": "Plant Science Researcher",
-        "img": "premiumProduce.webp"
+        "img": icons_dir + "plant-pot.png"
     },
     {
         "role": "Business Operations Manager",
-        "img": "ourTeam.webp"
+        "img": icons_dir + "briefcase.png"
     },
 ]
