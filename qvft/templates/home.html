@@ -3,6 +3,9 @@
 
 {% block page_css %}
 <style>
+    .container{
+        margin-top:3rem;
+    }
     .summary-card {
         background: linear-gradient(to left, white 50%, var(--theme-color) 50%) right;
         background-size: 200%;
@@ -19,16 +22,31 @@
     .zoom:hover {
         transform: scale(1.1);
     }
-    .image-description {
+    #knowledge-description {
         background-color: var(--theme-color);
-        color:white;
-        margin-top:5em;
+        color:#fff;
+        transition: 0.5s ease-in-out;
     }
-    .navbar{
-        transition: all 0.2s ease-in-out;
+    #knowledge-block:hover #knowledge-description{
+        color: var(--bs-light);
+        background-color: var(--bs-dark);
+        background-position: left;
     }
-    .btn{
-        transition: all 0.2s ease-in-out;
+    #aeroponic-image{
+        background-image: url("{{ url_for('static', filename='images/farm-bg.jpg') }}");
+        background-size: cover;
+        background-position: center;
+        height:60vh;
+    }
+    .plant-image{
+        opacity:0;
+        transition:all 1s;
+    }
+    #aeroponic-description{
+        background-color:rgba(0, 0, 0, .7)
+    }
+    #aeroponic-image:hover .plant-image{
+        opacity: 100;
     }
 </style>
 {% endblock %}
@@ -40,9 +58,9 @@
 </div>
 <main role="main" class="container">
     <h1>The Queen's Vertical Farming Team</h1>
-    <div class="py-4"></div>
+    <div class="py-2"></div>
     <p>QVFT is Canada's first undergraduate engineering team of its kind. Recognizing this rapidly emerging industry, QVFT is designing and building a functional, software-automated aeroponic vertical farm on Queen's University campus. Our 25 alumni and 13 current members come from diverse academic disciplines and represent all four years of study.</p>
-    <div class="py-4"></div>
+    <div class="py-3"></div>
     <div class="row justify-content-around text-center">
         <div class="col-7 col-md-4 col-lg-3">
             <div class="summary-card rounded">
@@ -63,20 +81,40 @@
             </div>
         </div>
     </div>
+
     <div class="py-5"></div>
-    <div class="row flex-row justify-content-left no-gutters smooth-transit">
+
+    <div class="row justify-content-left g-0" id="knowledge-block">
         <div class="col-12 col-md-6">
-            <img src="{{ url_for('static', filename='images/knowledge.png') }}" class="img-fluid rounded">
+            <img src="{{ url_for('static', filename='images/knowledge.png') }}" class="img-fluid" id="knowledge-image">
         </div>
-        <div class="col-12 col-md-6 p-5 mb-auto image-description rounded-right">
+        <div class="col-12 col-md-6 p-3 p-md-4 p-lg-5" id="knowledge-description">
             <h3>Knowledge, For Everyone</h3>
             The majority of existing research in this field is conducted privately and is thus inaccessible to the public.  Through its open-source approach, QVFT aims to democratize vertical farming knowledge and research. 
         </div>
     </div>
 
+    <div class="py-5"></div>
+
+    <div class="row justify-content-center rounded align-items-center" id="aeroponic-image">
+        <div class="col-md-2 d-none d-md-block" >
+            <img src="{{ url_for('static', filename='images/icons/plant.png') }}" class="img-fluid plant-image">
+        </div>
+        <div class="col-12 col-md-8 my-5 p-3 text-light" id="aeroponic-description">
+            <h3>Aeroponic System</h3>
+            QVFT employs an aeroponic cultivation method, in which plants grow without soil and are fed by a nutrient-enriched mist. Crops rest in thin, plastic root cups, through which their roots hang into a basin below. Aeroponic vertical farming lends well to automation and can allow for near- complete control over the plant growth environment.
+            <br>
+            <button class="btn btn-outline-light mt-2">Read More</button>
+        </div>
+        <div class="col-md-2 d-none d-md-block">
+            <img src="{{ url_for('static', filename='images/icons/plant-pot.png') }}" class="img-fluid plant-image">
+        </div>
+    </div>
+
     <div class="py-4"></div>
+
     <h1>Our partners</h1>
-    <div class="py-4"></div>
+    <div class="py-3"></div>
     <div class="row justify-content-center px-5">
         {% for partner in partner_data %}
         <div class="col-12 col-sm-5">
@@ -86,15 +124,18 @@
         </div>
         {% endfor %}
     </div>
-    <div class="py-4"></div>
-    <h1>Timeline</h1>
-
-    <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <div class="py-5"></div>
 </main>
-
 {% endblock%}
+
+
 {% block page_js %}
 <script>
+    $(".navbar").removeClass("navbar-light bg-light");
+    $(".navbar").addClass("navbar-dark");
+    $("#navbar-btn").removeClass("btn-outline-dark");
+    $("#navbar-btn").addClass("btn-outline-light");
+
     $(window).scroll(function() {    
         var scroll = $(window).scrollTop();
 
@@ -103,14 +144,14 @@
             //clearHeader, not clearheader - caps H
             $(".navbar").addClass("navbar-light bg-light");
             $(".navbar").removeClass("navbar-dark");
-            $(".btn").removeClass("btn-outline-light");
-            $(".btn").addClass("btn-outline-dark");
+            $("#navbar-btn").removeClass("btn-outline-light");
+            $("#navbar-btn").addClass("btn-outline-dark");
         }
         else if (scroll < $(".vh-100").height()-80){
             $(".navbar").removeClass("navbar-light bg-light");
             $(".navbar").addClass("navbar-dark");
-            $(".btn").removeClass("btn-outline-dark");
-            $(".btn").addClass("btn-outline-light");
+            $("#navbar-btn").removeClass("btn-outline-dark");
+            $("#navbar-btn").addClass("btn-outline-light");
         }
     });
 </script>
