@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% set active_page = "/hiring" %}
+
 {% block content %}
 <main role="main" class="container">
     <h1>Hiring</h1>
     <div class="py-4"></div>
     <p>Founded in September 2019, QVFT is Canada's first student-led university vertical farming design team. Vertical farming is a hyper-efficient, sustainable food cultivation method which is projected to become a major contributor to global food production in the coming decades. We are now seeking passionate, creative, and driven individuals to join us for the 2021-22 school year. Individual roles are described in the Hiring Package below. Apply before 11:59 PM on Tuesday, March 16th, 2021.</p>
     <div class="py-4"></div>
-    <div class="row justify-content-center pt-4">
+    <div class="row justify-content-center pt-4 text-center">
         {% for role in hiring_data %}
         <div class="col-md-2 col-6">
             <figure class="figure w-100">
