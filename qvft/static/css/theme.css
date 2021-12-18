@@ -37,3 +37,6 @@ embed{
     border-top:0.2rem solid var(--theme-color);
     padding-top:0.3rem;
 }
+.bg-theme{
+    background-color: var(--theme-color);
+}

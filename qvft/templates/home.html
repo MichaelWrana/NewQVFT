@@ -4,29 +4,20 @@
 {% block page_css %}
 <style>
     body, html, main {
-        scroll-snap-type: y mandatory;
         margin-top:0;
         font-family: 'Comfortaa', cursive;
     }
     section{
-        scroll-snap-align: start;
-        scroll-padding: 10px;
-        height:100vh;
         width:100%;
-        padding-top:60px;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        overflow:hidden;
+        overflow-x:hidden;
     }
     #landing-image{
         background-image:url("{{ url_for('static', filename='images/farm-bg.jpg') }}");
         background-size: cover;
         background-position: center;
-        scroll-snap-align: start;
     }
     .summary-card {
-        background: linear-gradient(to left, white 50%, var(--theme-color) 50%) right;
+        background: linear-gradient(to left, var(--bs-light) 50%, var(--theme-color) 50%) right;
         background-size: 200%;
         transition: .3s ease-out;
         border: none;
@@ -34,30 +25,47 @@
     .summary-card:hover{
         color: #fff;
         background-position: left;
+        cursor:pointer;
     }
-    #knowledge-description {
-        background-color: var(--theme-color);
-        color:#fff;
+    .card-title{
+        font-family: 'Montserrat', sans-serif;
+        font-weight:900;
+    }
+    .automation-text{
+        background: -webkit-linear-gradient(yellow, orange);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .aeroponic-text{
+        background: -webkit-linear-gradient(lightblue, blue);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .produce-text{
+        background: -webkit-linear-gradient(lightgreen, green);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
     #knowledge-image{
-        background-image: url("{{ url_for('static', filename='images/knowledge.png') }}");
+        background-image: url("{{ url_for('static', filename='images/sharing.jpg') }}");
         background-size: cover;
         background-position: center;
+        height:80vh;
     }
     #aeroponic-image{
-        background-image: url("{{ url_for('static', filename='images/aeroponic-bg.webp') }}");
+        background-image: url("{{ url_for('static', filename='images/sprinkler.jpg') }}");
         background-size: cover;
         background-position: center;
-    }
-    .plant-image{
-        opacity:0;
-        transition:all 1s;
+        height:80vh;
     }
     #aeroponic-description{
-        background-color:rgba(0, 0, 0, .7)
+        background-color:rgba(255, 255, 255, .9)
     }
-    #aeroponic-image:hover .plant-image{
-        opacity: 100;
+    .automation-row{
+        background-color: var(--bs-gray-100);
     }
     .zoom {
         transition: 0.3s ease-in-out;
@@ -65,6 +73,8 @@
     .zoom:hover {
         transform: scale(1.1);
     }
+
+
 </style>
 {% endblock %}
 
@@ -74,45 +84,47 @@
     <img src="{{ url_for('static', filename='images/icons/logo-white.webp') }}" class="img-fluid w-25">
 </div>
 <main role="main">
-    <section>
-        <div class="container">
-            <h1>The Queen's Vertical Farming Team</h1>
-            <div class="p-md-4"></div>
-            <p>QVFT is Canada's first undergraduate engineering team of its kind. Recognizing this rapidly emerging industry, QVFT is designing and building a functional, software-automated aeroponic vertical farm on Queen's University campus. Our 25 alumni and 13 current members come from diverse academic disciplines and represent all four years of study.</p>
-            <div class="p-md-4"></div>
+    <section class="bg-light">
+        <div class="container py-5">
+            <p class="fs-1">The Queen's Vertical Farming Team</p>
+            <div class="p-md-3"></div>
+            <p class="fs-5">
+                QVFT is Canada's first undergraduate engineering team of its kind. Recognizing this rapidly emerging industry, QVFT is designing and building a functional, software-automated aeroponic vertical farm on Queen's University campus.
+            </p>
+            <div class="p-md-3"></div>
             <div class="row justify-content-around text-center">
-                <div class="col-sm-12 col-md-4 col-lg-3">
-                    <div class="summary-card rounded p-2 my-2 ">
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="summary-card rounded p-2 my-2" onclick="location.href='#aeroponic-section';">
                         <div class="row">
-                            <div class="col-3 col-md-12">
-                                <img src="{{ url_for('static', filename='images/icons/vertical-farming.png') }}" class="img-fluid w-100 p-md-3">
+                            <div class="col-4 col-md-12">
+                                <img src="{{ url_for('static', filename='images/icons/vertical-farming.png') }}" class="img-fluid w-100 p-md-4">
                             </div>
-                            <div class="col-9 col-md-12 d-flex align-items-center justify-content-center">
-                                <h5>Aeroponic Farming</h5>
+                            <div class="col-8 col-md-12 d-flex align-items-center justify-content-center">
+                                <p class="fs-4 card-title aeroponic-text">Aeroponic</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-4 col-lg-3">
-                    <div class="summary-card rounded p-2 my-2">
+                    <div class="summary-card rounded p-2 my-2" onclick="location.href='#automation-section';">
                         <div class="row">
-                            <div class="col-3 col-md-12">
-                                <img src="{{ url_for('static', filename='images/icons/shovels.png') }}" class="img-fluid w-100 p-md-3">
+                            <div class="col-4 col-md-12">
+                                <img src="{{ url_for('static', filename='images/icons/automation.png') }}" class="img-fluid w-100 p-md-4">
                             </div>
-                            <div class="col-9 col-md-12 d-flex align-items-center justify-content-center">
-                                <h5>Premium Produce</h5>
+                            <div class="col-8 col-md-12 d-flex align-items-center justify-content-center">
+                                <p class="fs-4 card-title automation-text">Automated</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-4 col-lg-3">
-                    <div class="summary-card rounded p-2 my-2">
+                <div class="col-12 col-md-4 col-lg-3">
+                    <div class="summary-card rounded p-2 my-2" onclick="location.href='#knowledge-image';">
                         <div class="row">
-                            <div class="col-3 col-md-12">
-                                <img src="{{ url_for('static', filename='images/icons/farmer.png') }}" class="img-fluid w-100 p-md-3">
+                            <div class="col-4 col-md-12">
+                                <img src="{{ url_for('static', filename='images/icons/plant.png') }}" class="img-fluid w-100 p-md-4">
                             </div>
-                            <div class="col-9 col-md-12 d-flex align-items-center justify-content-center">
-                                <h5>Dedicated Growers</h5>
+                            <div class="col-8 col-md-12 d-flex align-items-center justify-content-center">
+                                <p class="fs-4 card-title produce-text">Nutrition</p>
                             </div>
                         </div>
                     </div>
@@ -122,28 +134,76 @@
     </section>
 
     <section>
-        <div class="row bg-dark vh-100">
-            <div class="col-12 col-sm-6" id="knowledge-image"></div>
-            <div class="col-12 col-sm-6 d-flex align-items-center justify-content-center" id="knowledge-description">
+        <div class="row">
+            <div class="col-12 col-md-6" id="knowledge-image"></div>
+            <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
                 <div class="p-3">
-                <h3>Knowledge, For Everyone</h3>
-                <p>The majority of existing research in this field is conducted privately and is thus inaccessible to the public.  Through its open-source approach, QVFT aims to democratize vertical farming knowledge and research. </p>
+                    <p class="fs-3">Farming, For Everyone</p>
+                    <p class="fs-5">The majority of existing research into vertical farming is conducted privately and is thus inaccessible to the public.  This means novel ideas surrounding vertical farms are held in secret and replicated research efforts are ubiquitous.  Through its open-source approach, QVFT aims to democratize vertical farming knowledge and research. </p>      
                 </div>
             </div>
         </div>
     </section>
- 
-    <section>
-        <div class="row justify-content-center rounded align-items-center vh-100" id="aeroponic-image">
-            <div class="col-12 col-md-8 my-5 p-3 text-light" id="aeroponic-description">
+    
+    <section id="aeroponic-section">
+        <div class="row justify-content-center rounded align-items-center" id="aeroponic-image">
+            <div class="col-12 col-md-8 my-5 p-3" id="aeroponic-description">
                 <div class="p-3">
-                    <h3>Aeroponic System</h3>
-                    QVFT employs an aeroponic cultivation method, in which plants grow without soil and are fed by a nutrient-enriched mist. Crops rest in thin, plastic root cups, through which their roots hang into a basin below. Aeroponic vertical farming lends well to automation and can allow for near- complete control over the plant growth environment.
-                    <br>
-                    <button class="btn btn-outline-light mt-2" onclick="location.href='/about';">Read More</button>
+                    <p class="fs-3">Aeroponic System</p>
+                    <p class="fs-5">QVFT employs an aeroponic cultivation method, in which plants grow without soil and are fed by a nutrient-enriched mist. Crops rest in thin, plastic root cups, through which their roots hang into a basin below. Aeroponic vertical farming lends well to automation and can allow for near- complete control over the plant growth environment.</p>
+                    <button class="btn btn-dark mt-2" onclick="location.href='/about';">Read More</button>
                 </div>
             </div>
         </div>
+    </section>
+
+    <section id="automation-section">
+
+            <div class="row my-5 px-5 py-4 ms-4 automation-row" style="border-radius: 50rem 5rem 5rem 50rem;">
+                <div class="col-12 col-md-3">
+                    <img src="{{ url_for('static', filename='images/sensor.png') }}" class="img-fluid w-100 p-md-4"> 
+                </div>
+                <div class="col-12 col-md-9 d-flex align-items-center">
+                    <div>
+                        <p class="fs-3">Data Recording</p>
+                        <p class="fs-5">Our Integrated system keeps track of everything in the farm 24/7.  From the amount of plants being grown to the water level in each tank and flow rate of every pump.</p>
+                        <button class="btn btn-info" onclick="location.href='/dashboard';">Live Farm View</button>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-5 px-5 py-4 me-4 automation-row" style="border-radius: 0rem 50rem 50rem 0rem;">
+                <div class="col-12 col-md-8 d-flex align-items-center">
+                    <div class="text-end">
+                        <p class="fs-3 ">Hardware Automation</p>
+                        <p class="fs-5">Our Vertical Farm is integrated with state-of-the-art software automation systems which minimizes the need for farm personnel.</p>
+                        <button class="btn btn-dark" onclick="location.href='/dashboard';">Learn more</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <img src="{{ url_for('static', filename='images/valve.png') }}" class="img-fluid w-100 p-md-4">
+                </div>
+            </div>
+
+            <div class="row my-5 px-5 py-4 ms-4 automation-row" style="border-radius: 50rem 5rem 5rem 50rem;">
+                <div class="col-12 col-md-4">
+                    <img src="{{ url_for('static', filename='images/book.png') }}" class="img-fluid w-100 p-md-4">
+                </div>
+                <div class="col-12 col-md-8 d-flex align-items-center">
+                    <div>
+                        <p class="fs-3">Public Access</p>
+                        <p class="fs-5">All of the information about the daily operation and control systems of the farm is publicly avaliable through our dashboard and database.</p>
+                        <button class="btn btn-info" onclick="location.href='/dashboard';">See The Data</button>
+                    </div>
+                </div>
+            </div>
+
+    </section>
+    
+    <section>
+
+        
     </section>
 
     <section>
