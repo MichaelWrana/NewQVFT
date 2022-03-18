@@ -2,6 +2,11 @@ from qvft import app
 from qvft import data
 from flask import render_template
 
+'''
+Static pages of QVFT
+For database page see dashboard.py
+'''
+
 
 @app.route('/')
 def index():
@@ -34,3 +39,8 @@ def hiring():
     return render_template('hiring.html',
                            navigation=data.nav_data,
                            hiring_data=data.hiring_data)
+
+@app.route('/dashboard/')
+def dashboard():
+    return render_template('dashboard.html',
+                           navigation=data.nav_data)

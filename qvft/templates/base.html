@@ -51,7 +51,8 @@
                         </li>
                         {% endfor %}
                     </ul>
-                    <button id="navbar-btn" class="btn btn-outline-dark my-2 my-sm-0">Dashboard</button>
+
+                    <a href = "/dashboard" id="navbar-btn" class="btn btn-outline-dark my-2 my-sm-0">Dashboard</a>
                 </div>
             </div>
         </nav>
@@ -59,8 +60,8 @@
     {% block content %}{% endblock %}
 
     <footer class="page-footer bg-light">
-        <div class="footer-copyright text-center py-3">
-            Queen's Vertical Farming Team - <a href="https://www.qvft.ca/"> qvft.ca</a>.  Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>.
+        <div class="text-center py-3">
+            Queen's Vertical Farming Team.  Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>.
         </div>
         {% block footer %} {% endblock %}
     </footer>

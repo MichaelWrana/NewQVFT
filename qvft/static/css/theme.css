@@ -1,15 +1,16 @@
 :root {
     --theme-color: #afcb5b;
-  }
+}
 body{
     line-height: 1.8;
 }
 header{
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Montserrat', sans-serif;
 }
 main{
     margin-top:90px;
     font-family: 'Montserrat', sans-serif;
+    min-height: 85vh;
 }
 .btn{
     font-family: 'Montserrat', sans-serif;
@@ -40,3 +41,4 @@ embed{
 .bg-theme{
     background-color: var(--theme-color);
 }
+
